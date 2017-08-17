@@ -1,35 +1,43 @@
 # config-repo
-# 数据源(基础数据)
-spring.datasource.druid.sys:
-    url: jdbc:mysql://192.168.210.34:3306/cloud3.0_sys?useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
-    username: dev_write
-    password: Aisino@dev#34
-    #default-readOnly: false  # 读写
-    initial-size: 30
-    max-active: 50
-    min-idle: 30
-    max-wait: 30000
-    pool-prepared-statements: true
-    max-pool-prepared-statement-per-connection-size: 20
-    validation-query: SELECT 'x'
-    time-between-eviction-runs-millis: 30000
-    min-evictable-idle-time-millis: 300000
-
 # 数据源(用户数据)
-spring.datasource.druid.user:
-    url: jdbc:mysql://192.168.210.34:3306/cloud3.0_user?useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
-    username: dev_write
-    password: Aisino@dev#34
-    #default-readOnly: true  # 只读
-    initial-size: 30
-    max-active: 50
-    min-idle: 30
-    max-wait: 30000
-    pool-prepared-statements: true
-    max-pool-prepared-statement-per-connection-size: 20
-    validation-query: SELECT 'x'
-    time-between-eviction-runs-millis: 30000
-    min-evictable-idle-time-millis: 300000
+spring:
+  datasource:
+    druid:
+      user:
+        url: jdbc:mysql://192.168.210.34:3306/cloud3.0_user?useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+        username: dev_write
+        password: Aisino@dev#34
+        #default-readOnly: true  # 只读
+        initialSize: 30
+        maxActive: 50
+        minIdle: 30
+        maxWait: 30000
+        poolPreparedStatements: true
+        maxPoolPreparedStatementPerConnectionSize: 20
+        validationQuery: SELECT 'x'
+        timeBetweenEvictionRunsMillis: 30000
+        minEvictableIdleTimeMillis: 300000
+        
+# 数据源(基础数据)
+      sys:
+        url: jdbc:mysql://192.168.210.34:3306/cloudaccount?useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+        username: dev_write
+        password: Aisino@dev#34
+        #default-readOnly: false  # 读写
+        initialSize: 30
+        maxActive: 50
+        minIdle: 30
+        maxWait: 30000
+        poolPreparedStatements: true
+        maxPoolPreparedStatementPerConnectionSize: 20
+        validationQuery: SELECT 'x'
+        timeBetweenEvictionRunsMillis: 30000
+        minEvictableIdleTimeMillis: 300000
+   
+# 分布式事物日志路径
+  jta:
+    log-dir: E:\logs\transaction-log
+
 
 server:
   port: 7777
