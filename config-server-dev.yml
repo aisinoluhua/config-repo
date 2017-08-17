@@ -37,7 +37,3 @@ spring:
 # 分布式事物日志路径
   jta:
     log-dir: E:\logs\transaction-log
-
-
-server:
-  port: 7777
